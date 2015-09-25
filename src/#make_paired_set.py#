@@ -1,0 +1,47 @@
+import sys
+import os
+import random
+import PIL.Image
+
+BLACK_THRESHOLD = 240
+WIDTH = 128
+HEIGHT = 128
+
+def get_black_rectangle(img):
+    left_most = WIDTH
+    right_most = 0
+    top_most = HEIGHT
+    bottom_most = 0
+    for y in range(HEIGHT):
+        for x in range(WIDTH):
+            if img.getpixel((x,y)) < BLACK_THRESHOLD:
+                top_most = min(y, top_most)
+                bottom_most = max(y, bottom_most)
+                left_most = min(x, left_most)
+                right_most = max(x, right_most)
+    return (top_most, bottom_most, left_most, right_most)
+
+
+# assumes both images are HEIGHTxWIDTH
+# set rescale_to_32 to rescale; stays at 128 by default
+def make_char_space(char1, char2, output_file, rescale_to_32):
+    A = PIL.Image.open(char1)
+    B = PIL.Image.open(char2)
+    A = A.convert("L")
+    B = B.convert("L")
+    
+    output = PIL.Image.new("L", (HEIGHT, WIDTH), color=255)
+    # blackX = (y1, y2, x1, x2)
+    blackA = get_black_rectangle(A)
+    print "A rect: ", blackA
+    widthA = blackA[
+    blackB = get_black_rectangle(B)
+    
+
+    ext = char1.split(".")[-1]
+    output.save(output_file + "." + ext, ext)    
+
+if __name__ == "__main__":
+    char1 = sys.argv[1]
+    char2 = sys.argv[2]
+    make_char_space(char1, char2, "output", True)
