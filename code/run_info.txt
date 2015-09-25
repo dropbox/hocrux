@@ -1,0 +1,26 @@
+to execute:
+
+python example.py model128/snapshot_iter_38490.caffemodel model128/deploy.prototxt sampledata/1.jpg --mean model128/mean.binaryproto --labels model128/labels.txt --nogpu
+
+python example.py model32/snapshot_iter_19245.caffemodel model32/deploy.prototxt sampledata/1.jpg --mean model32/mean.binaryproto --labels model32/labels.txt --nogpu
+
+
+python example.py model32/snapshot_iter_19245.caffemodel model32/deploy.prototxt  --mean model32/mean.binaryproto --labels model32/labels.txt --nogpu sampledata/dearjay.png
+
+python example.py model32/snapshot_iter_19245.caffemodel model32/deploy.prototxt  --mean model32/mean.binaryproto --labels model32/labels.txt --nogpu sampledata/dearjay_small.bmp > output.txt
+
+python example.py modelUL/snapshot_iter_19245.caffemodel modelUL/deploy.prototxt  --mean modelUL/mean.binaryproto --labels modelUL/labels.txt --nogpu sampledata/dearjay.png
+
+python example.py modelRandXY/snapshot_iter_153864.caffemodel modelRandXY/deploy.prototxt  --mean modelRandXY/mean.binaryproto --labels modelRandXY/labels.txt --nogpu sampledata/dearjay128.png
+
+python example.py model0_32_multi/snapshot_iter_405270.caffemodel model0_32_multi/deploy.prototxt  --mean model0_32_multi/mean.binaryproto --labels model0_32_multi/labels.txt --nogpu sampledata/dearjay.png
+
+python example.py model1_32/snapshot_iter_513330.caffemodel model1_32/deploy.prototxt  --mean model1_32/mean.binaryproto --labels model1_32/labels.txt --nogpu sampledata/test1line.png
+
+python example.py model1a_32/snapshot_iter_205692.caffemodel model1a_32/deploy.prototxt  --mean model1a_32/mean.binaryproto --labels model1a_32/labels.txt --nogpu sampledata/test1line.png
+
+python rasterize.py model4_32/snapshot_iter_247598.caffemodel model4_32/deploy.prototxt  --mean model4_32/mean.binaryproto --labels model4_32/labels.txt --nogpu sampledata/test_1_scaled.jpg
+
+python rasterize.py model5_32/snapshot_iter_282285.caffemodel model5_32/deploy.prototxt  --mean model5_32/mean.binaryproto --labels model5_32/labels.txt --nogpu sampledata/test_1_scaled.jpg
+
+remove "--nogpu" to run on gpu

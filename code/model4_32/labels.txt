@@ -1,0 +1,32 @@
+h
+underline
+z
+v
+m
+x
+blank
+t
+j
+g
+y
+between lines
+e
+b
+k
+n
+p
+s
+c
+overline
+w
+l
+q
+u
+d
+o
+r
+space
+f
+a
+between chars
+i
